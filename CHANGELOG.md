@@ -7,6 +7,360 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [6.5.0] - 2026-02-27 - "Community & Experience"
+
+> **Major UX upgrade: Stars feature, auto-updates, interactive prompts, and complete date tracking for all 950+ skills.**
+
+This release introduces significant community-driven enhancements to the web application alongside comprehensive metadata improvements. Users can now upvote skills, build contextual prompts interactively, and benefit from automatic skill updates. All skills now include date tracking for better discoverability.
+
+## 🚀 New Features
+
+### ⭐ Stars & Community Upvotes
+
+**Community-driven skill discovery with star/upvote system.**
+
+- Upvote skills you find valuable — visible to all users
+- Star counts persist via Supabase backend
+- One upvote per browser (localStorage deduplication)
+- Discover popular skills through community ratings
+
+> **Try it:** Browse to any skill and click the ⭐ button to upvote!
+
+### 🔄 Auto-Update Mechanism
+
+**Seamless skill updates via START_APP.bat.**
+
+- Automatic skill synchronization on app startup
+- Git-based fast updates when available
+- PowerShell HTTPS fallback for non-Git environments
+- Surgical updates — only `/skills/` folder to avoid conflicts
+
+> **Try it:** Run `START_APP.bat` to automatically fetch the latest 950+ skills!
+
+### 🛠️ Interactive Prompt Builder
+
+**Build contextual prompts directly in skill detail pages.**
+
+- Add custom context to any skill (e.g., "Use React 19 and Tailwind")
+- Copy formatted prompt with skill invocation + your context
+- Copy full skill content with context overlay
+- Streamlined workflow for AI assistant interactions
+
+> **Try it:** Visit any skill, add context in the text box, click "Copy @Skill"!
+
+### 📅 Date Tracking for All Skills
+
+**Complete `date_added` metadata across the entire registry.**
+
+- All 950+ skills now include `date_added` field
+- Visible badges in skill detail pages
+- Filter and sort by recency
+- Better discoverability of new capabilities
+
+## 📦 Improvements
+
+- **Smart Auto-Categorization**: Categories sorted by skill count with "uncategorized" at the end
+- **Category Stats**: Dropdown shows skill count per category
+- **Enhanced Home Page**: Risk level badges and date display on skill cards
+- **Complete Date Coverage**: All skills updated with `date_added` metadata
+- **Web App Dependencies**: Automatic `@supabase/supabase-js` installation
+
+## 👥 Credits
+
+A huge shoutout to our community contributors:
+
+- **@zinzied** for the comprehensive UX enhancement (Stars, Auto-Update, Prompt Builder, Date Tracking, Auto-Categorization — PR #150)
+
+---
+
+## [6.4.1] - 2026-02-27 - "Temporal & Convex Backend Hotfix"
+
+> **Hotfix release: Temporal Go expert skill, Convex reactive backend, and strict-compliant SEO incident/local audit fixes.**
+
+This release builds on 6.4.0 by adding a Temporal Go SDK pro skill, a comprehensive Convex reactive backend skill, and aligning the new SEO incident/local audit skills with the strict validation rules so they ship cleanly via npm.
+
+## 🚀 New Skills
+
+### ⏱️ [temporal-golang-pro](skills/temporal-golang-pro/)
+
+**Temporal Go SDK expert for durable distributed systems.**
+Guides production-grade Temporal Go usage with deterministic workflow rules, mTLS worker configuration, interceptors, testing strategies, and advanced patterns.
+
+- **Key Feature 1**: Covers workflow determinism, versioning, durable concurrency and long-running workflow patterns.
+- **Key Feature 2**: Provides mTLS-secure worker setup, interceptors, and replay/time-skipping test strategies.
+
+> **Try it:** `Use temporal-golang-pro to design a durable subscription billing workflow with safe versioning and mTLS workers.`
+
+### 🔄 [convex](skills/convex/)
+
+**Convex reactive backend for schema, functions, and real-time apps.**
+Full-stack backend skill covering Convex schema design, TypeScript query/mutation/action functions, real-time subscriptions, auth, file storage, scheduling, and deployment flows.
+
+- **Key Feature 1**: End-to-end examples for schema validators, function types, pagination and client integration.
+- **Key Feature 2**: Documents auth options (Convex Auth, Clerk, Better Auth) and operational patterns (cron, storage, environments).
+
+> **Try it:** `Use convex to design a schema and function set for a real-time dashboard with authenticated users and file uploads.`
+
+## 📦 Improvements
+
+- **Strict SEO Skills Compliance**:
+  - `seo-forensic-incident-response` and `local-legal-seo-audit` now include `## When to Use` sections and concise descriptions, and use `risk: safe`, fully passing `validate_skills.py --strict`.
+- **Catalog & Index Sync**:
+  - Updated `CATALOG.md`, `data/catalog.json`, `skills_index.json`, `data/bundles.json`, `data/aliases.json`, and `README.md` to track **950+ skills**, including `temporal-golang-pro`, `convex`, and the new SEO skills.
+
+## 👥 Credits
+
+- **@HuynhNhatKhanh** for the Temporal Go SDK expert skill (`temporal-golang-pro`, PR #148).
+- **@chauey** for the Convex reactive backend skill (`convex`, PR #152).
+- **@talesperito** for the SEO forensic incident response and local legal SEO skills and collaboration on the strict-compliant refinements (PRs #153 / #154).
+
+---
+
+## [6.4.0] - 2026-02-27 - "SEO Incident Response & Legal Local Audit"
+
+> **Focused release: specialized SEO incident response and legal local SEO audit skills, plus catalog sync.**
+
+This release adds two advanced SEO skills for handling organic traffic incidents and auditing legal/professional services sites, and updates the public catalog to keep discovery aligned with the registry.
+
+## 🚀 New Skills
+
+### 🧪 [seo-forensic-incident-response](skills/seo-forensic-incident-response/)
+
+**Forensic SEO incident response for sudden organic traffic or rankings drops.**
+Guides structured triage, hypothesis-driven investigation, evidence collection and phased recovery plans using GSC, analytics, logs and deployment history.
+
+- **Key Feature 1**: Classifies incidents across algorithmic, technical, manual action, content and demand-change buckets.
+- **Key Feature 2**: Produces a forensic report with 0–3 day, 3–14 day and 2–8 week action plans plus monitoring.
+
+> **Try it:** `We lost 40% of organic traffic last week. Use seo-forensic-incident-response to investigate and propose a recovery plan.`
+
+### ⚖️ [local-legal-seo-audit](skills/local-legal-seo-audit/)
+
+**Local SEO auditing for law firms and legal/professional services.**
+Specialized audit framework for YMYL legal sites covering GBP, E‑E‑A‑T, practice area pages, NAP consistency, legal directories and reputation.
+
+- **Key Feature 1**: Step‑by‑step GBP, directory and NAP audit tailored to legal practices.
+- **Key Feature 2**: Generates a prioritized action plan and content strategy for legal/local search.
+
+> **Try it:** `Audit the local SEO of this law firm website using local-legal-seo-audit and propose the top 10 fixes.`
+
+## 📦 Improvements
+
+- **Catalog Sync**: Updated `CATALOG.md` and `data/catalog.json` to track 947 skills and include `10-andruia-skill-smith` in the general category listing.
+- **Documentation**: README now references the MojoAuth implementation skill in the integrations list.
+
+## 👥 Credits
+
+A huge shoutout to our community contributors:
+
+- **@talesperito** for the SEO forensic incident response and legal local SEO audit skills (PRs #153 / #154).
+- **@developer-victor** for the MojoAuth implementation README integration (PR #149).
+
+---
+
+## [6.3.1] - 2026-02-25 - "Validation & Multi-Protocol Hotfix"
+
+> **"Hotfix release to restore missing skills, correct industrial risk labels, and harden validation across the registry."**
+
+This release fixes critical validation errors introduced in previous PRs, ensures full compliance with the strict CI registry checks, and restores two high-demand developer skills.
+
+## 🚀 New Skills
+
+### 🧩 [chrome-extension-developer](skills/chrome-extension-developer/)
+
+**Expert in building Chrome Extensions using Manifest V3.**
+Senior expertise in modern extension architecture, focusing on Manifest V3, service workers, and production-ready security practices.
+
+- **Key Feature 1**: Comprehensive coverage of Manifest V3 service workers and lifecycle.
+- **Key Feature 2**: Production-ready patterns for cross-context message passing.
+
+> **Try it:** `Help me design a Manifest V3 extension that monitors network requests using declarativeNetRequest.`
+
+### ☁️ [cloudflare-workers-expert](skills/cloudflare-workers-expert/)
+
+**Senior expertise for serverless edge computing on Cloudflare.**
+Specialized in edge architectures, performance optimization, and the full Cloudflare developer ecosystem (Wrangler, KV, D1, R2).
+
+- **Key Feature 1**: Optimized patterns for 0ms cold starts and edge-side storage.
+- **Key Feature 2**: Implementation guides for Durable Objects and R2 storage integration.
+
+> **Try it:** `Build a Cloudflare Worker that modifies response headers and caches fragmented data in KV.`
+
+---
+
+## 📦 Improvements
+
+- **Registry Update**: Now tracking 946+ high-performance skills.
+- **Validation Hardening**: Resolved missing "When to Use" sections for 11 critical skills (Andru.ia, Logistics, Energy).
+- **Risk Label Corrections**: Corrected risk levels to `safe` for `linkedin-cli`, `00-andruia-consultant`, and `20-andruia-niche-intelligence`.
+
+## 👥 Credits
+
+A huge shoutout to our community contributors:
+
+- **@itsmeares** for PR #139 validation fixes and "When to Use" improvements.
+
+---
+
+_Upgrade now: `git pull origin main` to fetch the latest skills._
+
+## [6.3.0] - 2026-02-25 - "Agent Discovery & Operational Excellence"
+
+> **Feature release: AgentFolio discovery skill, LinkedIn CLI automation, Evos operational skills, Andru.ia consulting roles, and hardened validation for new contributors.**
+
+## 🚀 New Skills
+
+### 🔍 [agentfolio](skills/agentfolio/)
+
+**Discover and research autonomous AI agents.**
+Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFolio directory.
+
+- **Key Feature 1**: Discover agents for specific use cases.
+- **Key Feature 2**: Collect concrete examples and benchmarks for agent capabilities.
+
+> **Try it:** `Use AgentFolio to find 3 autonomous AI agents focused on code review.`
+
+### 💼 [linkedin-cli](skills/linkedin-cli/)
+
+**Automate LinkedIn operations via CLI.**
+CLI-based LinkedIn automation skill using `@linkedapi/linkedin-cli` for profile enrichment, outreach, Sales Navigator, and workflow execution.
+
+- **Key Feature 1**: Fetch profiles and search people/companies.
+- **Key Feature 2**: Manage connections and send messages via Sales Navigator.
+
+> **Try it:** `Use linkedin-cli to search for PMs in San Francisco.`
+
+### 🚀 [appdeploy](skills/appdeploy/)
+
+**Deploy full-stack web apps.**
+Deploy web apps with backend APIs, database, and file storage via an HTTP API to get an instant public URL.
+
+- **Key Feature 1**: Chat-native deployment orchestrator.
+- **Key Feature 2**: Support for frontend-only and frontend+backend architectures.
+
+> **Try it:** `Deploy this React-Vite dashboard using appdeploy.`
+
+### 🐹 [grpc-golang](skills/grpc-golang/)
+
+**Production-grade gRPC patterns in Go.**
+Build robust microservices communication using Protobuf with mTLS, streaming, and observability configurations.
+
+- **Key Feature 1**: Standardize API contracts with Protobuf and Buf.
+- **Key Feature 2**: Implement service-to-service authentication and structured metrics.
+
+> **Try it:** `Use grpc-golang to define a user service streaming endpoint with mTLS.`
+
+### 📦 [logistics-exception-management](skills/logistics-exception-management/)
+
+**Expertise for handling freight and carrier disputes.**
+Deeply codified operational playbook for handling shipping exceptions, delays, damages, and claims. Part of the Evos operational domain expertise suite. Additional skills: `carrier-relationship-management`, `customs-trade-compliance`, `inventory-demand-planning`, `production-scheduling`, `returns-reverse-logistics`, `energy-procurement`, `quality-nonconformance`.
+
+- **Key Feature 1**: Provides escalation protocols and severity classification for exceptions.
+- **Key Feature 2**: Delivers templates and decision frameworks for claim management across various delivery modes.
+
+> **Try it:** `We have a delayed LTL shipment for a key customer, how should we handle it per logistics-exception-management?`
+
+### 🏗️ [00-andruia-consultant](skills/00-andruia-consultant/)
+
+**Spanish-language solutions architect.**
+Diagnóstica y traza la hoja de ruta óptima para proyectos de IA en español. Additional skills: `20-andruia-niche-intelligence`.
+
+- **Key Feature 1**: Proporciona entrevistas de diagnóstico para proyectos desde cero o existentes.
+- **Key Feature 2**: Propone el escuadrón de expertos necesario y genera artefactos de backlog en español.
+
+> **Try it:** `Actúa como 00-andruia-consultant y diagnostica este nuevo workspace.`
+
+## 📦 Improvements
+
+- **Validation & Quality Bar**:
+  - Normalised `risk:` labels for new skills to conform to the allowed set (`none`, `safe`, `critical`, `offensive`, `unknown`).
+  - Added explicit `## When to Use` sections to new operational and contributor skills to keep the registry strictly compatible with `python3 scripts/validate_skills.py --strict`.
+- **Interactive Web App**:
+  - Auto-updating local web app launcher and **Interactive Prompt Builder** enhancements (PR #137) now ship as part of the v6.3.0 baseline.
+- **Registry**:
+  - Validation Chain (`npm run chain` + `npm run validate:strict`) runs clean at 6.3.0 with all new skills indexed in `skills_index.json`, `data/catalog.json`, and `CATALOG.md`.
+
+## 👥 Credits
+
+- **@bobrenze-bot** for proposing the AgentFolio integration (Issue #136).
+- **@vprudnikoff** for the `linkedin-cli` skill (PR #131).
+- **@Onsraa** for the Bevy ECS documentation update around Require Components (PR #132).
+- **@Abdulrahmansoliman** for the AdaL CLI README instructions (PR #133).
+- **@avimak** for the `appdeploy` deployment skill (PR #134).
+- **@HuynhNhatKhanh** for the gRPC Go production patterns skill (PR #135).
+- **@zinzied** for the auto-updating web app launcher & Interactive Prompt Builder (PR #137).
+- **@nocodemf** for the Evos operational domain skills (PR #138).
+
+---
+
+## [6.2.0] - 2026-02-24 - "Interactive Web App & AWS IaC"
+
+> **Feature release: Interactive Skills Web App, AWS Infrastructure as Code skills, and Chrome Extension / Cloudflare Workers developer skills.**
+
+## 🚀 New Skills
+
+- **AWS Infrastructure as Code** (PR #124): `cdk-patterns`, `cloudformation-best-practices`, `terraform-aws-modules`.
+- **Browser & Edge** (PR #128): `chrome-extension-developer`, `cloudflare-workers-expert`.
+
+## 📦 Improvements
+
+- **Interactive Skills Web App** (PR #126): Added a local web UI for browsing skills, including `START_APP.bat`, setup script, and `web-app/` project with catalog export.
+- **Shopify Development Skill** (PR #125): Fixed markdown syntax issues in `skills/shopify-development/SKILL.md` to keep the registry strictly valid.
+- **Community Sources** (PR #127): Added SSOJet skills and integration guides to Credits & Sources.
+- **Registry**: Now tracking 930 skills.
+
+## 👥 Credits
+
+- **@ssumanbiswas** for AWS Infrastructure as Code skills (PR #124).
+- **@thuanlm** for the Shopify development skill fix (PR #125).
+- **@zinzied** for the Interactive Skills Web App (PR #126).
+- **@code-vj** for the SSOJet documentation link (PR #127).
+- **@GeekLuffy** for Chrome Extension and Cloudflare Workers skills (PR #128).
+
+---
+
+## [6.1.1] - 2026-02-23 - "AWS Cost Optimization & Registry 927"
+
+> **Patch release: AWS cost optimization skills (PR #107) and registry count 927.**
+
+- **New skills** (PR #107): `aws-cost-optimizer`, `aws-cost-cleanup`.
+- **Registry**: Now tracking 927 skills.
+
+---
+
+## [6.1.0] - 2026-02-23 - "Issues Fix & Community Expansion"
+
+> **Bugfixes for #116 and #120, plus Game Dev bundle, Android skills, Workflow Bundles, LibreOffice, Data Structure Protocol, and Kiro IDE support.**
+
+This release fixes the YAML syntax error in database-migrations-sql-migrations (issue #116), adds a typo alias so `shopify—development` (em dash) resolves to `shopify-development` (issue #120), and ships a large set of community PRs: Game Development Expansion (Bevy ECS, GLSL, Godot 4), Android Modern Development (Compose + Coroutines), Workflow Bundles and LibreOffice skills, Data Structure Protocol, and Kiro CLI/IDE support.
+
+## New Skills
+
+- **Game Development Expansion** (PR #121): `bevy-ecs-expert`, `shader-programming-glsl`, `godot-4-migration`.
+- **Android Modern Development** (PR #118): `android-jetpack-compose-expert`, `kotlin-coroutines-expert`.
+- **Workflow Bundles & LibreOffice** (PR #113): Workflow bundles readme, LibreOffice skills (Base, Calc, Draw, Impress, Writer), plus office-productivity, WordPress suite, and many domain skills (ai-agent-development, cloud-devops, database, e2e-testing, security-audit, terraform-infrastructure, etc.).
+- **Data Structure Protocol** (PR #114): `data-structure-protocol`.
+- **Kiro CLI and Kiro IDE** (PR #122): Documentation and support for Kiro.
+
+## Improvements
+
+- **YAML fix** (PR #119, fixes #116): Resolved invalid YAML in `database-migrations-sql-migrations/SKILL.md` (description block mapping); removed non-standard frontmatter and standardized section headers.
+- **Skill matching** (fixes #120): Added typo alias `shopify—development` → `shopify-development` so em-dash input resolves correctly.
+- **Registry**: Now tracking 925 skills.
+
+## Credits
+
+- **@nikolasdehor** for YAML fix (PR #119), Game Development Expansion (PR #121), Android Modern Development (PR #118)
+- **@ssumanbiswas** for Kiro CLI and Kiro IDE support (PR #122)
+- **@munir-abbasi** for Workflow Bundles and LibreOffice Skills (PR #113)
+- **@k-kolomeitsev** for Data Structure Protocol (PR #114)
+
+---
+
+_Upgrade now: `git pull origin main` to fetch the latest skills._
+
+---
+
 ## [6.0.0] - 2026-02-22 - "Codex YAML Fix & Community PRs"
 
 > **Major release: Codex frontmatter fixes, AWS Security & Compliance skills, Antigravity Workspace Manager CLI, and validation fixes.**
@@ -301,6 +655,8 @@ This release significantly upgrades our 3D visualization capabilities with a com
 - **[@Krishna-hehe](https://github.com/Krishna-hehe)** - Advanced Three.js skill overhaul (PR #78).
 
 ---
+
+## [5.2.0] - 2026-02-13 - "Podcast Generation & Azure AI Skills"
 
 > **New AI capabilities: Podcast Generation, Azure Identity, and Self-Evolving Agents.**
 

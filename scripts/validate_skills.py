@@ -12,22 +12,37 @@ WHEN_TO_USE_PATTERNS = [
 def has_when_to_use_section(content):
     return any(pattern.search(content) for pattern in WHEN_TO_USE_PATTERNS)
 
-def parse_frontmatter(content):
+def parse_frontmatter(content, rel_path=None):
     """
     Simple frontmatter parser using regex to avoid external dependencies.
     Returns a dict of key-values.
     """
     fm_match = re.search(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
     if not fm_match:
-        return None
+        return None, []
     
     fm_text = fm_match.group(1)
     metadata = {}
-    for line in fm_text.split('\n'):
+    lines = fm_text.split('\n')
+    fm_errors = []
+
+    for i, line in enumerate(lines):
         if ':' in line:
             key, val = line.split(':', 1)
             metadata[key.strip()] = val.strip().strip('"').strip("'")
-    return metadata
+            
+            # Check for multi-line description issue (problem identification for the user)
+            if key.strip() == "description":
+                stripped_val = val.strip()
+                if (stripped_val.startswith('"') and stripped_val.endswith('"')) or \
+                   (stripped_val.startswith("'") and stripped_val.endswith("'")):
+                    if i + 1 < len(lines) and lines[i+1].startswith('  '):
+                        fm_errors.append(f"description is wrapped in quotes but followed by indented lines. This causes YAML truncation.")
+                
+                # Check for literal indicators wrapped in quotes
+                if stripped_val in ['"|"', "'>'", '"|"', "'>'"]:
+                    fm_errors.append(f"description uses a block indicator {stripped_val} inside quotes. Remove quotes for proper YAML block behavior.")
+    return metadata, fm_errors
 
 def validate_skills(skills_dir, strict_mode=False):
     print(f"🔍 Validating skills in: {skills_dir}")
@@ -41,6 +56,7 @@ def validate_skills(skills_dir, strict_mode=False):
     security_disclaimer_pattern = re.compile(r"AUTHORIZED USE ONLY", re.IGNORECASE)
 
     valid_risk_levels = ["none", "safe", "critical", "offensive", "unknown"]
+    date_pattern = re.compile(r'^\d{4}-\d{2}-\d{2}$')  # YYYY-MM-DD format
 
     for root, dirs, files in os.walk(skills_dir):
         # Skip .disabled or hidden directories
@@ -59,10 +75,14 @@ def validate_skills(skills_dir, strict_mode=False):
                 continue
             
             # 1. Frontmatter Check
-            metadata = parse_frontmatter(content)
+            metadata, fm_errors = parse_frontmatter(content, rel_path)
             if not metadata:
                 errors.append(f"❌ {rel_path}: Missing or malformed YAML frontmatter")
                 continue # Cannot proceed without metadata
+            
+            if fm_errors:
+                for fe in fm_errors:
+                    errors.append(f"❌ {rel_path}: YAML Structure Error - {fe}")
 
             # 2. Metadata Schema Checks
             if "name" not in metadata:
@@ -90,6 +110,15 @@ def validate_skills(skills_dir, strict_mode=False):
                 msg = f"⚠️  {rel_path}: Missing 'source' attribution"
                 if strict_mode: errors.append(msg.replace("⚠️", "❌"))
                 else: warnings.append(msg)
+
+            # Date Added Validation (optional field)
+            if "date_added" in metadata:
+                if not date_pattern.match(metadata["date_added"]):
+                    errors.append(f"❌ {rel_path}: Invalid 'date_added' format. Must be YYYY-MM-DD (e.g., '2024-01-15'), got '{metadata['date_added']}'")
+            else:
+                msg = f"ℹ️  {rel_path}: Missing 'date_added' field (optional, but recommended)"
+                if strict_mode: warnings.append(msg)
+                # In normal mode, we just silently skip this
 
             # 3. Content Checks (Triggers)
             if not has_when_to_use_section(content):
