@@ -1,0 +1,695 @@
+# Instincts generated from https://github.com/bitscoid/antigravity-awesome-skills
+# Generated: 2026-02-27T17:07:03.812Z
+# Version: 2.0
+
+---
+id: antigravity-awesome-skills-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: chore, feat, docs, fix
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore: sync generated registry files [ci skip], feat: enhance web app with fuzzy search, syntax highlighting, and pagination
+
+---
+id: antigravity-awesome-skills-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Commit Length
+
+## Action
+
+Write moderate-length commit messages (~50 characters)
+
+## Evidence
+
+- Average commit message length: 50 chars
+- Based on 200 commits
+
+---
+id: antigravity-awesome-skills-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: antigravity-awesome-skills-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: antigravity-awesome-skills-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: antigravity-awesome-skills-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: antigravity-awesome-skills-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: **/schema.*, migrations/*
+
+---
+id: antigravity-awesome-skills-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: web-app/public/skills/avalonia-layout-zafiro/*, skills/c4-component/*, **/*.test.*
+
+---
+id: antigravity-awesome-skills-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/**/*
+
+---
+id: antigravity-awesome-skills-workflow-skill-registry-sync
+trigger: "when doing skill registry sync"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Skill Registry Sync
+
+## Action
+
+Follow the skill-registry-sync workflow:
+1. Regenerate CATALOG.md
+2. Update data/catalog.json
+3. Update data/bundles.json
+4. Update skills_index.json
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~15x per month
+- Files: CATALOG.md, data/catalog.json, data/bundles.json
+
+---
+id: antigravity-awesome-skills-workflow-skill-addition
+trigger: "when doing skill addition"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Skill Addition
+
+## Action
+
+Follow the skill-addition workflow:
+1. Create skills/{skill-name}/SKILL.md
+2. Update skills_index.json
+3. Regenerate catalog files
+4. Update package version
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: skills/{skill-name}/SKILL.md, skills_index.json, CATALOG.md
+
+---
+id: antigravity-awesome-skills-workflow-release-cycle
+trigger: "when doing release cycle"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Release Cycle
+
+## Action
+
+Follow the release-cycle workflow:
+1. Update package.json version
+2. Update CHANGELOG.md
+3. Update README.md
+4. Sync all generated files
+5. Update skills_index.json
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: package.json, CHANGELOG.md, README.md
+
+---
+id: antigravity-awesome-skills-workflow-skill-validation-fix
+trigger: "when doing skill validation fix"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Skill Validation Fix
+
+## Action
+
+Follow the skill-validation-fix workflow:
+1. Update skill SKILL.md files
+2. Fix frontmatter validation
+3. Update skills_index.json
+4. Regenerate catalog
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: skills/*/SKILL.md, skills_index.json, scripts/validate_skills.py
+
+---
+id: antigravity-awesome-skills-workflow-azure-sdk-skill-updates
+trigger: "when doing azure sdk skill updates"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Azure Sdk Skill Updates
+
+## Action
+
+Follow the azure-sdk-skill-updates workflow:
+1. Update multiple azure-* skill files
+2. Standardize descriptions and metadata
+3. Update skills index
+4. Sync catalogs
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: skills/azure-*/SKILL.md, skills_index.json, CATALOG.md
+
+---
+id: antigravity-awesome-skills-workflow-web-app-sync
+trigger: "when doing web app sync"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Workflow Web App Sync
+
+## Action
+
+Follow the web-app-sync workflow:
+1. Update web-app/public/skills/*.md
+2. Update web-app/public/skills.json
+3. Sync skill metadata
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: web-app/public/skills/*/SKILL.md, web-app/public/skills.json
+
+---
+id: antigravity-awesome-skills-conventional-commits
+trigger: "When creating a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Conventional Commits
+
+## Action
+
+Use conventional commit format with prefixes: chore, feat, docs, fix, release
+
+## Evidence
+
+- All 8 example commits follow conventional format
+- Consistent use of chore:, feat:, docs:, fix: prefixes
+
+---
+id: antigravity-awesome-skills-commit-length
+trigger: "When writing commit messages"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Commit Length
+
+## Action
+
+Keep commit message length around 50 characters average
+
+## Evidence
+
+- Average commit length is 50 characters
+- Examples range from 30-80 characters
+
+---
+id: antigravity-awesome-skills-ci-skip-chores
+trigger: "When making automated registry sync commits"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Ci Skip Chores
+
+## Action
+
+Add [ci skip] tag to chore commits for generated files
+
+## Evidence
+
+- chore: sync generated registry files [ci skip]
+- Pattern of skipping CI for automated updates
+
+---
+id: antigravity-awesome-skills-pascal-case-files
+trigger: "When creating new files"
+confidence: 0.6
+domain: code-style
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Pascal Case Files
+
+## Action
+
+Use PascalCase for file naming
+
+## Evidence
+
+- Naming convention pattern shows PascalCase for files
+- SKILL.md files follow this pattern
+
+---
+id: antigravity-awesome-skills-camel-case-functions
+trigger: "When naming functions"
+confidence: 0.6
+domain: code-style
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Camel Case Functions
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Code style analysis indicates camelCase for functions
+- Python-based project with mixed conventions
+
+---
+id: antigravity-awesome-skills-screaming-snake-constants
+trigger: "When defining constants"
+confidence: 0.6
+domain: code-style
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Screaming Snake Constants
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constants
+
+## Evidence
+
+- Naming conventions pattern shows SCREAMING_SNAKE_CASE
+- Standard Python convention
+
+---
+id: antigravity-awesome-skills-relative-imports
+trigger: "When importing modules"
+confidence: 0.5
+domain: code-style
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Relative Imports
+
+## Action
+
+Use relative import style
+
+## Evidence
+
+- Import style analysis shows relative imports preferred
+- Single-package architecture supports this
+
+---
+id: antigravity-awesome-skills-try-catch-errors
+trigger: "When handling errors"
+confidence: 0.6
+domain: code-style
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Try Catch Errors
+
+## Action
+
+Use try-catch pattern for error handling
+
+## Evidence
+
+- Error handling style indicates try-catch preference
+- No custom error classes detected
+
+---
+id: antigravity-awesome-skills-skill-registry-sync
+trigger: "When skills are added, modified, or removed"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Skill Registry Sync
+
+## Action
+
+Regenerate CATALOG.md, update data/catalog.json, data/bundles.json, and skills_index.json
+
+## Evidence
+
+- 15 occurrences per month
+- Clear pattern of syncing registry files
+- chore: regenerate skills index after merge
+
+---
+id: antigravity-awesome-skills-skill-addition
+trigger: "When creating a new skill definition"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Skill Addition
+
+## Action
+
+Create skills/{skill-name}/SKILL.md and update skills_index.json
+
+## Evidence
+
+- 8 occurrences per month
+- Consistent pattern of SKILL.md creation
+- Multiple skills folders present
+
+---
+id: antigravity-awesome-skills-release-cycle
+trigger: "When preparing a new version release"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Release Cycle
+
+## Action
+
+Update package.json version, CHANGELOG.md, README.md, and sync all generated files
+
+## Evidence
+
+- 6 occurrences per month
+- release: v6.3.1 - Validation & Multi-Protocol Hotfix
+- chore: release 6.5.0 - Community & Experience
+
+---
+id: antigravity-awesome-skills-validation-fixes
+trigger: "When skills have YAML frontmatter or formatting issues"
+confidence: 0.82
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Validation Fixes
+
+## Action
+
+Update skill SKILL.md files and fix frontmatter validation
+
+## Evidence
+
+- 4 occurrences per month
+- fix: resolve validation errors in PR #139 and restore PR #128 skills
+- validate_skills.py present
+
+---
+id: antigravity-awesome-skills-azure-batch-updates
+trigger: "When updating Azure service integrations"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Azure Batch Updates
+
+## Action
+
+Update multiple azure-* skill files and standardize descriptions
+
+## Evidence
+
+- 3 occurrences per month
+- Pattern of batch Azure skill updates
+- Multiple azure-* folders detected
+
+---
+id: antigravity-awesome-skills-web-app-sync
+trigger: "When web app needs updated skill data"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Web App Sync
+
+## Action
+
+Update web-app/public/skills/*.md and web-app/public/skills.json
+
+## Evidence
+
+- 2 occurrences per month
+- web-app folder structure present
+- Supabase integration mentioned
+
+---
+id: antigravity-awesome-skills-feature-docs-pattern
+trigger: "When implementing new features"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Feature Docs Pattern
+
+## Action
+
+Follow sequence: implement feature, add tests, update documentation
+
+## Evidence
+
+- feat: enhance web app with fuzzy search, syntax highlighting, and pagination
+- Feature-development workflow with 11 occurrences
+
+---
+id: antigravity-awesome-skills-refactor-safety
+trigger: "When refactoring code structure"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Refactor Safety
+
+## Action
+
+Ensure tests pass before refactor, then verify tests still pass after
+
+## Evidence
+
+- Refactoring workflow detected
+- Mixed test location pattern
+- 2 occurrences per month
+
+---
+id: antigravity-awesome-skills-mixed-test-structure
+trigger: "When creating tests"
+confidence: 0.5
+domain: testing
+source: repo-analysis
+source_repo: bitscoid/antigravity-awesome-skills
+---
+
+# Antigravity Awesome Skills Mixed Test Structure
+
+## Action
+
+Place tests in mixed locations alongside source code
+
+## Evidence
+
+- Test location: mixed
+- **/*.test.* pattern in workflows
+- No dedicated test folder structure
+
